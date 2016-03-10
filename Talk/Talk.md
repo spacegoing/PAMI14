@@ -93,7 +93,7 @@ $$
 - Coding
 
 ### Some Experiences###
-- Building skyscraper with enough bricks.
+- A-ha moments keep you going.
 - Be prepared for unexpected things.
 
 
