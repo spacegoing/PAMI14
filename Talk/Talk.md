@@ -1,4 +1,4 @@
-## A Basic Story ##
+## A Story ##
 
 ![Figure 1.1 The original classroom](./Pics/Classroom.jpg)
 
