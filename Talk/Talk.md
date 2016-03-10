@@ -1,3 +1,5 @@
+# Optimizing Weighted Lower Linear Envelope Potentials Within Latent-SVM Framework #
+
 ## A Story ##
 
 ![Figure 1.1 The original classroom](./Pics/Classroom.jpg)
