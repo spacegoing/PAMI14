@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link href="http://spacegoing.github.io/CSS/kevinburke-md-css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#makefile">Makefile</a>
+<ul>
+<li><a href="#gcc-compilation-process">GCC: Compilation Process</a></li>
+<li><a href="#paths">Paths</a>
+<ul>
+<li><a href="#include-paths-compiler-search-headers">include-paths (Compiler search Headers)</a></li>
+<li><a href="#library-paths-linker-search-for-librarys">library-paths (Linker search for librarys)</a></li>
+<li><a href="#path-executables-and-run-time-shared-libraries-dll-so">PATH (Executables and Run-time Shared libraries .dll .so)</a></li>
+<li><a href="#view-paths">View Paths</a></li>
+</ul></li>
+<li><a href="#gnu-make">GNU Make</a>
+<ul>
+<li><a href="#file-structure">File Structure</a></li>
+<li><a href="#syntax">Syntax</a>
+<ul>
+<li><a href="#phony-targets-or-artificial-targets">Phony Targets (or Artificial Targets)</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#virtual-path---vpath--vpath">Virtual Path - VPATH &amp; vpath</a></li>
+<li><a href="#pattern-rules">Pattern Rules</a></li>
+<li><a href="#implicit-pattern-rules">Implicit Pattern Rules</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<!-- markdown-toc end -->
+<h1 id="makefile">Makefile</h1>
+<h2 id="gcc-compilation-process">GCC: Compilation Process</h2>
+<div class="figure">
+<img src="./MISC/GCC_CompilationProcess.png" alt="CompilationProcess" />
+<p class="caption">CompilationProcess</p>
+</div>
+<h2 id="paths">Paths</h2>
+<h3 id="include-paths-compiler-search-headers">include-paths (Compiler search Headers)</h3>
+<ul>
+<li>Command Option: <code>-I*dir*</code></li>
+<li>Environment Variable: <code>CPATH</code></li>
+</ul>
+<h3 id="library-paths-linker-search-for-librarys">library-paths (Linker search for librarys)</h3>
+<ul>
+<li>Command Option: <code>-L*dir*</code></li>
+<li><p>Environment Variable: <code>LIBRARY_PATH</code></p>
+<blockquote>
+<p>In addition, you also have to specify the library name. In Unixes, the library libxxx.a is specified via -lxxx option (lowercase letter 'l', without the prefix &quot;lib&quot; and &quot;.a&quot; extension). In Windows, provide the full name such as -lxxx.lib. The linker needs to know both the directories as well as the library names. Hence, two options need to be specified.</p>
+</blockquote></li>
+</ul>
+<h3 id="path-executables-and-run-time-shared-libraries-.dll-.so">PATH (Executables and Run-time Shared libraries .dll .so)</h3>
+<h3 id="view-paths">View Paths</h3>
+<ul>
+<li>List Paths: <code>cpp -v</code></li>
+<li>Compile in verbose mode (-v) &amp; Show -L library-paths and libraries: <code>gcc -v -o hello.exe hello.c</code></li>
+</ul>
+<h2 id="gnu-make">GNU Make</h2>
+<blockquote>
+<p>The makefile can be named &quot;makefile&quot;, &quot;Makefile&quot; or &quot;GNUMakefile&quot;, without file extension.</p>
+</blockquote>
+<blockquote>
+<p>The rules are usually organized in such as way the more general rules come first. The overall rule is often name &quot;all&quot;, which is the default target for make.</p>
+</blockquote>
+<h3 id="file-structure">File Structure</h3>
+<p>A makefile consists of a set of rules. A rule consists of 3 parts: a target, a list of pre-requisites and a command, as follows:</p>
+<pre><code>target: pre-req-1 pre-req-2 ...
+    command</code></pre>
+<p>When make is asked to evaluate a rule, it begins by finding the files in the prerequisites. If any of the prerequisites has an associated rule, make attempts to update those first.</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dv">all:</span><span class="dt"> hello.exe</span>
+
+<span class="dv">hello.exe:</span><span class="dt"> hello.o</span>
+     gcc -o hello.exe hello.o
+
+<span class="dv">hello.o:</span><span class="dt"> hello.c</span>
+     gcc -c hello.c
+     
+<span class="dv">clean:</span>
+     rm hello.o hello.exe</code></pre></div>
+<p>In the above example, the rule &quot;all&quot; has a pre-requisite &quot;hello.exe&quot;. make cannot find the file &quot;hello.exe&quot;, so it looks for a rule to create it. The rule &quot;hello.exe&quot; has a pre-requisite &quot;hello.o&quot;. Again, it does not exist, so make looks for a rule to create it. The rule &quot;hello.o&quot; has a pre-requisite &quot;hello.c&quot;. make checks that &quot;hello.c&quot; exists and it is newer than the target (which does not exist). It runs the command &quot;gcc -c hello.c&quot;. The rule &quot;hello.exe&quot; then run its command &quot;gcc -o hello.exe hello.o&quot;. Finally, the rule &quot;all&quot; does nothing.</p>
+<h3 id="syntax">Syntax</h3>
+<h4 id="phony-targets-or-artificial-targets">Phony Targets (or Artificial Targets)</h4>
+<p>A target that does not represent a file is called a phony target. For example, the &quot;clean&quot; in the above example, which is just a label for a command. If the target is a file, it will be checked against its pre-requisite for out-of-date-ness. Phony target is always out-of-date and its command will be run. The standard phony targets are: <code>all, clean, install</code>.</p>
+<h4 id="variables">Variables</h4>
+<p>A variable begins with a $ and is enclosed within parentheses (...) or braces {...}. Single character variables do not need the parentheses. For example, <code>$(CC), $(CC_FLAGS), $@, $^</code>.</p>
+<h5 id="automatic-variables">Automatic Variables</h5>
+<p>Automatic variables are set by make after a rule is matched. There include:</p>
+<ul>
+<li>$@: the target filename.</li>
+<li>$*: the target filename without the file extension.</li>
+<li>$&lt;: the first prerequisite filename.</li>
+<li>$^: the filenames of all the prerequisites, separated by spaces, discard duplicates.</li>
+<li>$+: similar to $^, but includes duplicates.</li>
+<li>$?: the names of all prerequisites that are newer than the target, separated by spaces.</li>
+</ul>
+<p>For example, we can rewrite the earlier makefile as:</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dv">all:</span><span class="dt"> hello.exe</span>
+<span class="co"># $@ matches the target; $&lt; matches the first dependent</span>
+<span class="dv">hello.exe:</span><span class="dt"> hello.o</span>
+    gcc -o <span class="ch">$@</span> <span class="ch">$&lt;</span>
+
+<span class="dv">hello.o:</span><span class="dt"> hello.c</span>
+    gcc -c <span class="ch">$&lt;</span>
+     
+<span class="dv">clean:</span>
+    rm hello.o hello.exe</code></pre></div>
+<h4 id="virtual-path---vpath-vpath">Virtual Path - VPATH &amp; vpath</h4>
+<p>You can use VPATH (uppercase) to specify the directory to search for dependencies and target files. For example,</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="co"># Search for depen</span>
+dencies and targets from <span class="st">&quot;src&quot;</span> and <span class="st">&quot;include&quot;</span> directories
+<span class="co"># The directories are separated by space</span>
+<span class="dt">VPATH </span><span class="ch">=</span><span class="st"> src include</span></code></pre></div>
+<p>You can also use vpath (lowercase) to be more precise about the file type and its search directory. For example,</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="co"># Search for .c </span>
+files in <span class="st">&quot;src&quot;</span> directory; .h files in <span class="st">&quot;include&quot;</span> directory
+<span class="co"># The pattern matching character &#39;%&#39; matches filename without the extension</span>
+vpath %.c src
+vpath %.h <span class="kw">include</span></code></pre></div>
+<h4 id="pattern-rules">Pattern Rules</h4>
+<p>A pattern rule, which uses pattern matching character '%' as the filename, can be applied to create a target, if there is no explicit rule. For example,</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="co"># Applicable for create .o object file.</span>
+<span class="co"># &#39;%&#39; matches filename.</span>
+<span class="co"># $&lt; is the first pre-requisite</span>
+<span class="co"># $(COMPILE.c) consists of compiler name and compiler options</span>
+<span class="co"># $(OUTPUT_OPTIONS) could be -o $@</span>
+<span class="dv">%.o:</span><span class="dt"> %.c</span>
+    <span class="ch">$(</span><span class="dt">COMPILE.c</span><span class="ch">)</span> <span class="ch">$(</span><span class="dt">OUTPUT_OPTION</span><span class="ch">)</span> <span class="ch">$&lt;</span>
+ 
+<span class="co"># Applicable for create executable (without extension) from object .o object file</span>
+<span class="co"># $^ matches all the pre-requisites (no duplicates)</span>
+<span class="dv">%:</span><span class="dt"> %.o</span>
+<span class="ch">$(</span><span class="dt">LINK.o</span><span class="ch">)</span> <span class="ch">$^</span> <span class="ch">$(</span><span class="dt">LOADLIBES</span><span class="ch">)</span> <span class="ch">$(</span><span class="dt">LDLIBS</span><span class="ch">)</span> -o <span class="ch">$@</span></code></pre></div>
+<h4 id="implicit-pattern-rules">Implicit Pattern Rules</h4>
+<p>Make comes with a huge set of implicit pattern rules. You can list all the rule via --print-data-base option.</p>
+<h4 id="dependency-rules">Dependency Rules</h4>
+<p>Dependency Rules are rules without any command. It indicate that if any file to the right of the colon changes, the target to the left of the colon should be considered out-of-date. The commands for making an out-of-date target up-to-date may be found elsewhere (in this case, by the Pattern Rule above). Dependency Rules are often used to capture header file dependencies.</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dv">Main.o :</span><span class="dt"> Main.h Test1.h Test2.h</span>
+<span class="dv">Test1.o :</span><span class="dt"> Test1.h Test2.h</span>
+<span class="dv">Test2.o :</span><span class="dt"> Test2.h</span></code></pre></div>
+<h4 id="a-sample-makefile">2.3 A Sample Makefile</h4>
+<p>This sample makefile is extracted from Eclipse's &quot;C/C++ Development Guide -Makefile&quot;.</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="co"># A sample Makefile</span>
+<span class="co"># This Makefile demonstrates and explains </span>
+<span class="co"># Make Macros, Macro Expansions,</span>
+<span class="co"># Rules, Targets, Dependencies, Commands, Goals</span>
+<span class="co"># Artificial Targets, Pattern Rule, Dependency Rule.</span>
+
+<span class="co"># Comments start with a # and go to the end of the line.</span>
+
+<span class="co"># Here is a simple Make Macro.</span>
+<span class="dt">LINK_TARGET </span><span class="ch">=</span><span class="st"> test_me.exe</span>
+
+<span class="co"># Here is a Make Macro that uses the backslash to extend to multiple lines.</span>
+<span class="dt">OBJS </span><span class="ch">=</span><span class="st">  </span><span class="ch">\</span>
+<span class="st"> Test1.o </span><span class="ch">\</span>
+<span class="st"> Test2.o </span><span class="ch">\</span>
+<span class="st"> Main.o</span>
+
+<span class="co"># Here is a Make Macro defined by two Macro Expansions.</span>
+<span class="co"># A Macro Expansion may be treated as a textual replacement of the Make Macro.</span>
+<span class="co"># Macro Expansions are introduced with $ and enclosed in (parentheses).</span>
+<span class="dt">REBUILDABLES </span><span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="dt">OBJS</span><span class="ch">)</span><span class="st"> </span><span class="ch">$(</span><span class="dt">LINK_TARGET</span><span class="ch">)</span>
+
+<span class="co"># Here is a simple Rule (used for &quot;cleaning&quot; your build environment).</span>
+<span class="co"># It has a Target named &quot;clean&quot; (left of the colon &quot;:&quot; on the first line),</span>
+<span class="co"># no Dependencies (right of the colon),</span>
+<span class="co"># and two Commands (indented by tabs on the lines that follow).</span>
+<span class="co"># The space before the colon is not required but added here for clarity.</span>
+<span class="dv">clean :</span><span class="dt"> </span>
+  rm -f <span class="ch">$(</span><span class="dt">REBUILDABLES</span><span class="ch">)</span>
+  echo Clean done
+
+<span class="co"># There are two standard Targets your Makefile should probably have:</span>
+<span class="co"># &quot;all&quot; and &quot;clean&quot;, because they are often command-line Goals.</span>
+<span class="co"># Also, these are both typically Artificial Targets, because they don&#39;t typically</span>
+<span class="co"># correspond to real files named &quot;all&quot; or &quot;clean&quot;.  </span>
+
+<span class="co"># The rule for &quot;all&quot; is used to incrementally build your system.</span>
+<span class="co"># It does this by expressing a dependency on the results of that system,</span>
+<span class="co"># which in turn have their own rules and dependencies.</span>
+<span class="dv">all :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">LINK_TARGET</span><span class="ch">)</span>
+  echo All done
+
+<span class="co"># There is no required order to the list of rules as they appear in the Makefile.</span>
+<span class="co"># Make will build its own dependency tree and only execute each rule only once</span>
+<span class="co"># its dependencies&#39; rules have been executed successfully.</span>
+
+<span class="co"># Here is a Rule that uses some built-in Make Macros in its command:</span>
+<span class="co"># $@ expands to the rule&#39;s target, in this case &quot;test_me.exe&quot;.</span>
+<span class="co"># $^ expands to the rule&#39;s dependencies, in this case the three files</span>
+<span class="co"># main.o, test1.o, and  test2.o.</span>
+<span class="dv">$(LINK_TARGET) :</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">OBJS</span><span class="ch">)</span>
+  g++ -g -o <span class="ch">$@</span> <span class="ch">$^</span>
+
+<span class="co"># Here is a Pattern Rule, often used for compile-line.</span>
+<span class="co"># It says how to create a file with a .o suffix, given a file with a .cpp suffix.</span>
+<span class="co"># The rule&#39;s command uses some built-in Make Macros:</span>
+<span class="co"># $@ for the pattern-matched target</span>
+<span class="co"># $&lt; for the pattern-matched dependency</span>
+<span class="dv">%.o :</span><span class="dt"> %.cpp</span>
+  g++ -g -o <span class="ch">$@</span> -c <span class="ch">$&lt;</span>
+
+<span class="co"># These are Dependency Rules, which are rules without any command.</span>
+<span class="co"># Dependency Rules indicate that if any file to the right of the colon changes,</span>
+<span class="co"># the target to the left of the colon should be considered out-of-date.</span>
+<span class="co"># The commands for making an out-of-date target up-to-date may be found elsewhere</span>
+<span class="co"># (in this case, by the Pattern Rule above).</span>
+<span class="co"># Dependency Rules are often used to capture header file dependencies.</span>
+<span class="dv">Main.o :</span><span class="dt"> Main.h Test1.h Test2.h</span>
+<span class="dv">Test1.o :</span><span class="dt"> Test1.h Test2.h</span>
+<span class="dv">Test2.o :</span><span class="dt"> Test2.h</span>
+
+<span class="co"># Alternatively to manually capturing dependencies, several automated</span>
+<span class="co"># dependency generators exist.  Here is one possibility (commented out)...</span>
+<span class="co"># %.dep : %.cpp</span>
+<span class="co">#   g++ -M $(FLAGS) $&lt; &gt; $@</span>
+<span class="co"># include $(OBJS:.o=.dep)</span></code></pre></div>
+</body>
+</html>

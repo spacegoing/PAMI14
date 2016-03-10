@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+  </script>
+  <link href="https://spacegoing.github.io/CSS/spacegoing.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h2 id="a-basic-story">A Basic Story</h2>
+<div class="figure">
+<img src="./Pics/Classroom.jpg" alt="Figure 1.1 The original classroom" />
+<p class="caption">Figure 1.1 The original classroom</p>
+</div>
+<div class="figure">
+<img src="./Pics/People.jpg" alt="Figure 1.2 Classroom with people" />
+<p class="caption">Figure 1.2 Classroom with people</p>
+</div>
+<div class="figure">
+<img src="./Pics/Itelli_Classroom.png" alt="Figure 1.3 Result" />
+<p class="caption">Figure 1.3 Result</p>
+</div>
+<h2 id="large-margin-framework">Large Margin Framework</h2>
+<h3 id="binary-support-vector-machine">Binary Support Vector Machine</h3>
+<div class="figure">
+<img src="./Pics/0020Bhdkzy6Px4B4v2L97&amp;690.jpeg" alt="Figure 2.1 Linear Separable SVM" />
+<p class="caption">Figure 2.1 Linear Separable SVM</p>
+</div>
+<blockquote>
+<ul>
+<li>Margin: perpendicular distance between the decision boundary and the closest data points.</li>
+<li>Support Vectors: Data points determine the location of this boundary.</li>
+</ul>
+</blockquote>
+<h3 id="multi-classes-support-vector-machine">Multi-classes Support Vector Machine</h3>
+<div class="figure">
+<img src="./Pics/multiSVM.png" alt="Figure 2.2 Multi-classes SVM" />
+<p class="caption">Figure 2.2 Multi-classes SVM</p>
+</div>
+<p><span class="math display">\[ 
+    \begin{equation*}
+\max_{r} \{\mathbf{M_r} \cdot x + 1-\delta_{y,r} \} - \mathbf{M_y} \cdot x
+    \end{equation*}
+\]</span></p>
+<p>Where <span class="math inline">\(y\in{1,...,k}\)</span> is label of <span class="math inline">\(x\)</span> and <span class="math inline">\(\mathbf{M_r}\)</span> is a <span class="math inline">\(k \times n\)</span> size matrix. <span class="math inline">\(\delta_{p,q}\)</span> equals <span class="math inline">\(1\)</span> if <span class="math inline">\(p==q\)</span> and <span class="math inline">\(0\)</span> otherwise.</p>
+<h3 id="structral-support-vector-machine">Structral Support Vector Machine</h3>
+<div class="figure">
+<img src="./Pics/StructruedSVM.png" alt="Figure 2.3 Structured SVM" />
+<p class="caption">Figure 2.3 Structured SVM</p>
+</div>
+<h3 id="latent-structral-svm">Latent Structral SVM</h3>
+<p><span class="math display">\[
+    \begin{equation*}
+f_w(x) = \mathop{\arg\,\max}_{(\mathbf{y} \times \mathbf{h}) \in \mathcal{Y} \times \mathcal{H}} w\cdot\Psi(\mathbf{x},\mathbf{y},\mathbf{h})
+    \end{equation*}
+\]</span></p>
+<h2 id="markov-random-field">Markov Random Field</h2>
+<h3 id="markov-random-field-1">Markov Random Field</h3>
+<div class="figure">
+<img src="./Pics/MRF.png" alt="Figure 3.1 Markov Random Field" />
+<p class="caption">Figure 3.1 Markov Random Field</p>
+</div>
+<div class="figure">
+<img src="./Pics/denoise.png" alt="Figure 3.2 Restore Pictures" />
+<p class="caption">Figure 3.2 Restore Pictures</p>
+</div>
+<p><span class="math display">\[ 
+    \begin{equation*}
+    E(x,y) = h\sum_i{x_i} - \beta\sum_{i,j}{x_ix_j}-\eta\sum_i{x_iy_i}
+    \end{equation*}
+\]</span></p>
+<h3 id="higher-order-energy-using-linear-envelope">Higher Order Energy using Linear Envelope</h3>
+<div class="figure">
+<img src="./Pics/Envelope.png" alt="Figure 3.3 Linear Envelope" />
+<p class="caption">Figure 3.3 Linear Envelope</p>
+</div>
+<h2 id="current-work">Current Work</h2>
+<h3 id="introducing-latent-variable-into-linear-envelope">Introducing Latent Variable into Linear Envelope</h3>
+<p>By introducing latent vector <span class="math inline">\(\mathbf{h} = \{h_0, h_1, \dots, h_K\}\)</span>where <span class="math inline">\(h_i\in[0,1]\)</span> into feature vector, we have <span class="math inline">\(\phi_c^H(\mathbf{y}_c)=\boldsymbol{\theta}^T\boldsymbol{\psi}(\mathbf{y},\mathbf{h})\)</span> where, <span class="math display">\[
+    \begin{equation*}
+    \theta_k = \left\{
+    \begin{aligned}
+    &amp; b_1   &amp; \text{for} \ k=0\\
+    &amp; a_1 &amp; \text{for}\ k=1\\
+    &amp; a_{k-1}-a_k  &amp; \text{for} \ k=2,\dots,K+1\\
+    \end{aligned}
+    \right.
+    \end{equation*}
+\]</span> <span class="math display">\[  
+    \begin{equation*}
+    \phi_k = \left\{
+    \begin{aligned}
+    &amp; 1 &amp; \text{for} \ k=0\\
+    &amp; W(\mathbf{y}) &amp; \text{for}\ k=1\\
+    &amp; \bigg(h_{k-1}-W(\mathbf{y}) \bigg)\bigg[\bigg[ W(\mathbf{y}) &gt; h_{k-1}\bigg]\bigg]  &amp; \text{for} \ k=2,\dots,K+1\\
+    \end{aligned}
+    \right.
+    \end{equation*}
+\]</span></p>
+<h3 id="remaining-work">Remaining Work</h3>
+<ul>
+<li>Inference Algorithm</li>
+<li>Coding</li>
+</ul>
+<h3 id="some-experiences">Some Experiences</h3>
+<ul>
+<li>Building skyscraper with enough bricks.</li>
+<li>Be prepared for unexpected things.</li>
+</ul>
+</body>
+</html>
