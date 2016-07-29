@@ -2,12 +2,12 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Fri Mar 11 02:39:51 2016
+;; Created Tue Apr  5 20:34:05 2016
 ;; Desktop file format version 206
 ;; Emacs version 24.5.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (22241 38215 431534 0) (desktop . "206") "spacegoing@LCs-MacBook-Pro.local" nil nil ((((font-backend mac-ct ns) (fontsize . 0) (font . "-apple-Menlo-medium-normal-normal-*-22-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars) (foreground-color . "#b2b2b2") (background-color . "#292b2e") (line-spacing) (left-fringe . 13) (right-fringe . 13) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (fullscreen) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "DarkGoldenrod2") (environment) (persp) (powerline-cache) (frameset--id . "89D4-2B4B-2B7F-54EA") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (visibility . t) (display . "LCs-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (height . 39) (width . 145) (left . 4) (top . 31)) ((min-height . 4) (min-width . 20) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 104) (min-pixel-width . 260) (min-pixel-height-ignore . 78) (min-pixel-width-ignore . 104) (min-pixel-height-safe . 26) (min-pixel-width-safe . 52)) hc (pixel-width . 1911) (pixel-height . 988) (total-width . 147) (total-height . 38) (normal-height . 1.0) (normal-width . 1.0) (combination-limit . t) (leaf (pixel-width . 949) (pixel-height . 988) (total-width . 73) (total-height . 38) (normal-height . 1.0) (normal-width . 0.5) (buffer "PAMI14" (selected . t) (hscroll . 0) (fringes 13 13 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 920) (start . 1))) (leaf (last . t) (pixel-width . 962) (pixel-height . 988) (total-width . 74) (total-height . 38) (normal-height . 1.0) (normal-width . 0.5) (buffer "cython_version" (selected) (hscroll . 0) (fringes 13 13 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 462) (start . 1)))))])
+(setq desktop-saved-frameset [frameset 1 (22275 38045 797988 0) (desktop . "206") "spacegoing@LCs-MacBook-Pro.local" nil nil ((((font-backend mac-ct ns) (fontsize . 0) (font . "-apple-Menlo-medium-normal-normal-*-22-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (vertical-scroll-bars) (foreground-color . "#b2b2b2") (background-color . "#292b2e") (line-spacing) (left-fringe . 13) (right-fringe . 13) (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (fullscreen) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "DarkGoldenrod2") (environment) (persp) (powerline-cache) (frameset--id . "89D4-2B4B-2B7F-54EA") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (right-divider-width . 0) (bottom-divider-width . 0) (icon-name) (visibility . t) (display . "LCs-MacBook-Pro.local") (explicit-name) (tool-bar-position . top) (height . 39) (width . 145) (left . 4) (top . 31)) ((min-height . 4) (min-width . 20) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 104) (min-pixel-width . 260) (min-pixel-height-ignore . 78) (min-pixel-width-ignore . 104) (min-pixel-height-safe . 26) (min-pixel-width-safe . 52)) hc (pixel-width . 1911) (pixel-height . 988) (total-width . 147) (total-height . 38) (normal-height . 1.0) (normal-width . 1.0) (combination-limit . t) (leaf (pixel-width . 949) (pixel-height . 988) (total-width . 73) (total-height . 38) (normal-height . 1.0) (normal-width . 0.4965986394557823) (buffer "PAMI14" (selected . t) (hscroll . 0) (fringes 13 13 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 920) (start . 1))) (leaf (last . t) (pixel-width . 962) (pixel-height . 988) (total-width . 74) (total-height . 38) (normal-height . 1.0) (normal-width . 0.5034013605442177) (buffer "examples" (selected) (hscroll . 0) (fringes 13 13 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 326) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
@@ -21,20 +21,64 @@
   'dired-mode
   '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode yas-minor-mode)
   920
-  '(920 nil)
+  '(912 nil)
   t
   '("/Users/spacegoing/macCodeLab-MBP2015/PAMI14/")
   '((indicate-empty-lines) (overwrite-mode)))
 
 (desktop-create-buffer 206
   nil
-  "cython_version"
+  "examples"
+  'dired-mode
+  '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode)
+  326
+  '(326 nil)
+  t
+  '("/Users/spacegoing/macCodeLab-MBP2015/Python/examples/")
+  '((indicate-empty-lines) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "01-essentials"
+  'dired-mode
+  '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode)
+  282
+  '(282 nil)
+  t
+  '("/Users/spacegoing/macCodeLab-MBP2015/Python/examples/01-essentials/")
+  '((indicate-empty-lines) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "01-comparing-python-c-and-cython"
+  'dired-mode
+  '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode)
+  765
+  '(765 nil)
+  t
+  '("/Users/spacegoing/macCodeLab-MBP2015/Python/examples/01-essentials/01-comparing-python-c-and-cython/")
+  '((indicate-empty-lines) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "02-compiling"
+  'dired-mode
+  '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode)
+  281
+  '(281 nil)
+  t
+  '("/Users/spacegoing/macCodeLab-MBP2015/Python/examples/02-compiling/")
+  '((indicate-empty-lines) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
+  "Python"
   'dired-mode
   '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode yas-minor-mode)
-  462
-  '(462 nil)
+  206
+  '(206 nil)
   t
-  '("/Users/spacegoing/macCodeLab-MBP2015/PAMI14/cython_version/")
+  '("/Users/spacegoing/macCodeLab-MBP2015/Python/")
   '((indicate-empty-lines) (overwrite-mode)))
 
 (desktop-create-buffer 206
@@ -42,19 +86,30 @@
   "macCodeLab-MBP2015"
   'dired-mode
   '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode vi-tilde-fringe-mode volatile-highlights-mode projectile-mode helm-mode yas-minor-mode)
-  527
-  '(527 nil)
+  784
+  '(784 nil)
   t
   '("/Users/spacegoing/macCodeLab-MBP2015/")
   '((indicate-empty-lines . t) (overwrite-mode)))
 
 (desktop-create-buffer 206
   nil
+  "cython_version"
+  'dired-mode
+  '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode volatile-highlights-mode projectile-mode helm-mode yas-minor-mode)
+  535
+  '(535 nil)
+  t
+  '("/Users/spacegoing/macCodeLab-MBP2015/PAMI14/cython_version/")
+  '((indicate-empty-lines) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  nil
   "spacegoing"
   'dired-mode
   '(override-global-mode which-key-mode global-auto-revert-mode anzu-mode evil-escape-mode flx-ido-mode persp-mode undo-tree-mode vi-tilde-fringe-mode volatile-highlights-mode projectile-mode helm-mode yas-minor-mode)
-  4148
-  '(4148 nil)
+  4190
+  '(1 nil)
   t
   '("/Users/spacegoing/")
   '((indicate-empty-lines . t) (overwrite-mode)))

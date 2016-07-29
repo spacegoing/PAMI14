@@ -51,7 +51,7 @@ void usage()
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
     // check number of input and output arguments
-    if ((nrhs != 4) || (nlhs < 1) || (nlhs > 2)) {
+    if ((nrhs != 4) || (nlhs < 1) || (nlhs > 3)) {
         usage();
         return;
     }
@@ -78,6 +78,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     const double *p = mxGetPr(prhs[0]);
     for (int i = 0; i < nVariables; i++) {
         g->add_tweights(i, p[i], p[i + nVariables]);
+        // mexPrintf("Node: %d, Source: %f, Sink: %f\n", i, p[i], p[i + nVariables]);
     }
 
     // add pairwise terms
@@ -111,12 +112,13 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     mexPrintf("...%d higher-order cliques (maximum of %d cliques per variable)\n", 
         (int)cliqueSize.size(), nMaxCliquesPerVariable);
 
+    vector<int> z(cliqueSize.size());
+
     if ((K != 0) && !cliqueSize.empty()) {
         mexPrintf("...adding %d linear envelope potentials\n", (int)cliqueSize.size());
         p = mxGetPr(prhs[2]);
 
         // add auxiliary variables for each clique
-        vector<int> z(cliqueSize.size());
         if (K > 1) {
             for (int cliqueIndx = 0; cliqueIndx < (int)z.size(); cliqueIndx++) {
                 z[cliqueIndx] = g->add_node(K - 1);
@@ -175,6 +177,15 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     if (nlhs >= 2) {
         plhs[1] = mxCreateDoubleMatrix(1, 1, mxREAL);
         *mxGetPr(plhs[1]) = e;
+        plhs[2] = mxCreateDoubleMatrix(z.size()*(K-1), 1, mxREAL);
+        double *zz = mxGetPr(plhs[2]);
+        int abc = 0;
+        for (int i = 0; i < z.size(); i++) {
+            for(int j = 0; j < K-1; j++){
+                zz[abc] = (g->what_segment(z[i]+j) == GraphType::SOURCE) ? 1.0 : 0.0;
+                abc++;
+            }
+        }
     }
 
     // free graph

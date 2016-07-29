@@ -26,9 +26,7 @@
 ![Figure 2.2 Multi-classes SVM](./Pics/multiSVM.png)
 
 $$ 
-	\begin{equation*}
 \max_{r} \{\mathbf{M_r} \cdot x + 1-\delta_{y,r} \} - \mathbf{M_y} \cdot x
-	\end{equation*}
 $$
 
 Where $y\in{1,...,k}$ is label of $x$ and $\mathbf{M_r}$ is a $k \times n$ size matrix. $\delta_{p,q}$ equals $1$ if $p==q$ and $0$ otherwise.
